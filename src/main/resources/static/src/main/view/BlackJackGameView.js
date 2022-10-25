@@ -66,6 +66,12 @@ class BlackJackGameView {
             winnerElement.style.display = "inline-block";
             this.endGame()
         }
+         if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
+                    const winnerElement = document.getElementById("winner");
+                    winnerElement.innerHTML = "Player: " + this.blackJackGameData.getCurrentPlayer().name + "WINNER";
+                    winnerElement.style.display = "inline-block";
+                    this.endGame()
+                }
     }
 
     endGame() {
@@ -75,8 +81,9 @@ class BlackJackGameView {
         if (playerScore > dealerScore && playerScore < 22) {
             winner = player;
         }
+        else (winner = getDealer);
         document.getElementById("game-options").style.display = "none";
-        document.getElementById("winner").innerHTML = "Winner: Player " + winner.name;
+        document.getElementById("winner").innerHTML = "Winner: Player " + blackJackGameData.getCurrentPlayer().name;
         document.getElementById("winner").style.display = "inline-block";
     }
 
