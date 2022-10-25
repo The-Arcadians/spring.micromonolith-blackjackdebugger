@@ -69,10 +69,10 @@ class BlackJackGameView {
     }
 
     endGame() {
-        let winner = this.blackJackGameData.getDealer();
+        let winner = this.blackJackGameData.getPlayer();
         const dealerScore = this.blackJackGameData.getDealer().getHandTotal();
         const playerScore = this.blackJackGameData.getPlayer().getHandTotal();
-        if (playerScore > dealerScore && playerScore < 22) {
+        if (playerScore > dealerScore && playerScore > 22) {
             winner = player;
         }
         document.getElementById("game-options").style.display = "none";
