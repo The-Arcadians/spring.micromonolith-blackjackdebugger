@@ -62,7 +62,7 @@ class BlackJackGameView {
     checkAndUpdateWinner() {
         if (this.blackJackGameData.getCurrentPlayer().getHandTotal() > 21) {
             const winnerElement = document.getElementById("winner");
-            winnerElement.innerHTML = "Player: " + this.blackJackGameData.getCurrentPlayer().name + " LOST";			
+            winnerElement.innerHTML = "Player: " + this.blackJackGameData.getCurrentPlayer().name + " LOST";
             winnerElement.style.display = "inline-block";
             this.endGame()
         }
@@ -72,18 +72,29 @@ class BlackJackGameView {
                     winnerElement.style.display = "inline-block";
                     this.endGame()
                 }
+                if (this.blackJackGameData.getDealer().getHandTotal() == 21) {
+                                    const winnerElement = document.getElementById("winner");
+                                    winnerElement.innerHTML = "Player: " + this.blackJackGameData.getDealer.name + "WINNER";
+                                    winnerElement.style.display = "inline-block";
+                                    this.endGame()
+                                }
+         if (this.blackJackGameData.isCurrentPlayerDealer() && dealerScore >= 17){
+         this.endGame();
+         }
+
+
     }
 
     endGame() {
-        let winner = this.blackJackGameData.getDealer();
+        let winner = this.blackJackGameData.getDealer().name;
         const dealerScore = this.blackJackGameData.getDealer().getHandTotal();
         const playerScore = this.blackJackGameData.getPlayer().getHandTotal();
-        if (playerScore > dealerScore && playerScore < 22) {
-            winner = player;
+        if ((playerScore > dealerScore && playerScore <= 21) || (playerScore < dealerScore && dealerScore > 21)) {
+            winner = this.blackJackGameData.getPlayer().name;
         }
-        else (winner = getDealer);
+        else (winner = this.blackJackGameData.getDealer().name);
         document.getElementById("game-options").style.display = "none";
-        document.getElementById("winner").innerHTML = "Winner: Player " + blackJackGameData.getCurrentPlayer().name;
+        document.getElementById("winner").innerHTML = "Winner: Player " + winner;
         document.getElementById("winner").style.display = "inline-block";
     }
 

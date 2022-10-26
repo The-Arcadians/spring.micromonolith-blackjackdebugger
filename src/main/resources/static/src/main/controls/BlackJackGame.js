@@ -23,10 +23,12 @@ class BlackJackGame {
 
     stay() {
         // if the current player is the dealer
-        if(this.blackJackGameData.isCurrentPlayerDealer()) {            
+        if(this.blackJackGameData.isCurrentPlayerDealer()) {
+        this.blackJackGameDataView.checkAndUpdateWinner();
             this.blackJackGameDataView.endGame();
         } else { 
             // switch current player to next player
+            this.blackJackGameDataView.checkAndUpdateWinner();
             this.blackJackGameDataView.removeActiveOnCurrentPlayer();
             this.blackJackGameData.setCurrentPlayer();
         }
