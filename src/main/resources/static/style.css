@@ -96,7 +96,7 @@ body {
 }
 
 .player.active {
-	border: solid 5px gold;
+	border: dotted 5px gold;
 }
 
 .points {
