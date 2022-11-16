@@ -9,6 +9,8 @@ class BlackJackGame {
         this.blackJackGameDataView.clearGameOptions();
         this.blackJackGameDataView.setNumberOfCardsOnScreen();
         this.blackJackGameDataView.setActiveOnCurrentPlayer();
+        this.blackJackGameDataView.updatePoints();
+        this.blackJackGameDataView.checkAndUpdateWinner();
     }
 
     hit() {
@@ -21,13 +23,14 @@ class BlackJackGame {
 
     stay() {
         // if the current player is the dealer
-        if(this.blackJackGameData.isCurrentPlayerDealer()) {            
+        if(this.blackJackGameData.isCurrentPlayerDealer()) {
             this.blackJackGameDataView.endGame();
         } else { 
             // switch current player to next player
             this.blackJackGameDataView.removeActiveOnCurrentPlayer();
             this.blackJackGameData.setCurrentPlayer();
         }
+        this.blackJackGameDataView.checkAndUpdateWinner();
         this.blackJackGameDataView.setActiveOnCurrentPlayer();
     }
 }
