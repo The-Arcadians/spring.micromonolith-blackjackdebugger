@@ -49,6 +49,7 @@ class BlackJackGameView {
     });
   }
 
+
   setNumberOfCardsOnScreen() {
     const deck = this.blackJackGameData.getDeck();
     const cards = deck.cards;
@@ -64,6 +65,7 @@ class BlackJackGameView {
 
     if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
       this.endGame();
+
     }
 
     if (this.blackJackGameData.getDealer().getHandTotal() == 21) {
