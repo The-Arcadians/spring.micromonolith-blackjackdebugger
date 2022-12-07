@@ -27,7 +27,7 @@ public class WinnerController {
 
     @RequestMapping(value = "/create-default", method = RequestMethod.POST)
     public ResponseEntity<Winner> create() {
-        Winner responseBody = service.create(new Winner(0L, "Leon", "Hunter"));
+        Winner responseBody = service.create(new Winner(0L, "Leon", 0));
         ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
         return responseEntity;
     }

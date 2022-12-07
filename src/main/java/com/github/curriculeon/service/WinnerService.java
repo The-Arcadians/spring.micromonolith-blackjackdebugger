@@ -30,11 +30,11 @@ public class WinnerService {
 
     public Winner update(Long id, Winner winner) {
         Winner winnerInDataBase = read(id);
-        String newFirstName = winner.getFirstName();
-        String newLastName = winner.getLastName();
+        String newName = winner.getName();
+        int numberOfWins = winner.getNumberOfWins();
 
-        winnerInDataBase.setFirstName(newFirstName);
-        winnerInDataBase.setLastName(newLastName);
+        winnerInDataBase.setName(newName);
+        winnerInDataBase.setNumberOfWins(numberOfWins);
         repository.save(winnerInDataBase);
         return winnerInDataBase;
     }

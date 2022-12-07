@@ -10,20 +10,20 @@ public class Winner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    Long id;
+    private Long id;
 
-    String firstName;
+    private String name;
 
-    String lastName;
+    private int numberOfWins;
 
     public Winner() {
-
     }
 
-    public Winner(Long id, String firstName, String lastName) {
+    public Winner(Long id, String name, int numberOfWins) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+        this.name = name;
+        this.numberOfWins = numberOfWins;
+
     }
 
     public Long getId() {
@@ -34,19 +34,21 @@ public class Winner {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public int getNumberOfWins() {
+        return numberOfWins;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setNumberOfWins(int numberOfWins) {
+        this.numberOfWins = numberOfWins;
     }
+
+
 }

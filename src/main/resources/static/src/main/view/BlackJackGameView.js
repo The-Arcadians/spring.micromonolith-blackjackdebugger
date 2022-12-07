@@ -68,7 +68,7 @@ if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
     }
 
 
-    }
+    
 
     if (this.blackJackGameData.getDealer().getHandTotal() == 21) {
       this.endGame();
