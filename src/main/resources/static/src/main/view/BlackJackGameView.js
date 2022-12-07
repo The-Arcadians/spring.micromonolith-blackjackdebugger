@@ -60,27 +60,17 @@ class BlackJackGameView {
 
   checkAndUpdateWinner() {
     if (this.blackJackGameData.getCurrentPlayer().getHandTotal() > 21) {
-      const winnerElement = document.getElementById("winner");
-      winnerElement.innerHTML =
-        "Player: " + this.blackJackGameData.getCurrentPlayer().name + " LOST";
-      winnerElement.style.display = "inline-block";
       this.endGame();
     }
 
-    if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
-      const winnerElement = document.getElementById("winner");
-      winnerElement.innerHTML =
-        "Player: " + this.blackJackGameData.getCurrentPlayer().name + "WINNER";
-      winnerElement.style.display = "inline-block";
+if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
       this.endGame();
-
     }
+
+
+    
 
     if (this.blackJackGameData.getDealer().getHandTotal() == 21) {
-      const winnerElement = document.getElementById("winner");
-      winnerElement.innerHTML =
-        "Player: " + this.blackJackGameData.getDealer.name + "WINNER";
-      winnerElement.style.display = "inline-block";
       this.endGame();
     }
 
@@ -101,9 +91,11 @@ class BlackJackGameView {
       (playerScore < dealerScore && dealerScore > 21)
     ) {
       winner = this.blackJackGameData.getPlayer().name;
+    } else if (playerScore == dealerScore) {
+      winner = "Push. No winner.";
     } else winner = this.blackJackGameData.getDealer().name;
     document.getElementById("game-options").style.display = "none";
-    document.getElementById("winner").innerHTML = "Winner: Player " + winner;
+    document.getElementById("winner").innerHTML = "Winner: " + winner;
     document.getElementById("winner").style.display = "inline-block";
   }
 
