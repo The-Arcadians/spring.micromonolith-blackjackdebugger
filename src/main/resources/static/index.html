@@ -30,8 +30,7 @@
 
 
 
-First Name: <input id="fname"><br>
-Last Name: <input id="lname"><br>
+Name: <input id="name"><br>
 <form>
     <button onclick="create(event)">Create Person</button>
 </form>
@@ -42,19 +41,18 @@ Click <a href="./blackjack.html">here</a> to play the Blackjack game!
 
 <script>
     class Person {
-        constructor(id_, fname_, lname_) {
+        constructor(id_, name_, numberOfWins_) {
             this.id = id_;
-            this.firstName = fname_;
-            this.lastName = lname_;
+            this.name = name_;
+            this.numberOfWins = numberOfWins_;
         }
     }
 
     function create(e) {
         e.preventDefault();
         console.log("click")
-        let firstName1 = document.getElementById("fname").value;
-        let lastName1 = document.getElementById("lname").value;
-        let jsonPerson1 = new Person(0, firstName1, lastName1);
+        let firstName1 = document.getElementById("name").value;
+        let jsonPerson1 = new Person(0, name1);
         let personData = JSON.stringify(jsonPerson1);
         console.log(personData)
 

@@ -31,11 +31,9 @@ public class PersonService {
 
     public Person update(Long id, Person person) {
         Person personInDataBase = read(id);
-        String newFirstName = person.getFirstName();
-        String newLastName = person.getLastName();
+        String newName = person.getName();
 
-        personInDataBase.setFirstName(newFirstName);
-        personInDataBase.setLastName(newLastName);
+        personInDataBase.setName(newName);
         repository.save(personInDataBase);
         return personInDataBase;
     }
