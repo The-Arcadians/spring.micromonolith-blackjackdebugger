@@ -1,0 +1,38 @@
+[
+  {
+    "rank": "01",
+    "id": "112",
+    "name": "Leon",
+    "numberOfWins": "9"
+  },
+  {
+    "rank": "02",
+    "id": "194",
+    "name": "Brent",
+    "numberOfWins": "8"
+  },
+  {
+    "rank": "03",
+    "id": "135",
+    "name": "Eric",
+    "numberOfWins": "8"
+  },
+  {
+    "rank": "04",
+    "id": "128",
+    "name": "Randy",
+    "numberOfWins": "7"
+  },
+  {
+    "rank": "05",
+    "id": "120",
+    "name": "Kanye",
+    "numberOfWins": "3"
+  },
+  {
+    "rank": "06",
+    "id": "115",
+    "name": "Elon",
+    "numberOfWins": "2"
+  }
+]
