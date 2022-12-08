@@ -10,6 +10,8 @@ public class Winner {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    private int rank;
+
     private Long id;
 
     private String name;
@@ -19,11 +21,22 @@ public class Winner {
     public Winner() {
     }
 
-    public Winner(Long id, String name, int numberOfWins) {
+
+    public Winner(int rank,Long id, String name, int numberOfWins) {
+        this.rank = rank;
         this.id = id;
         this.name = name;
         this.numberOfWins = numberOfWins;
 
+    }
+
+
+    public int getRank() {
+        return rank;
+    }
+
+    public void setRank(int rank) {
+        this.rank = rank;
     }
 
     public Long getId() {
