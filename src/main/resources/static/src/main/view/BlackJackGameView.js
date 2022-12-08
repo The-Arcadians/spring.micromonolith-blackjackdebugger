@@ -67,9 +67,6 @@ if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
       this.endGame();
     }
 
-
-    }
-
     if (this.blackJackGameData.getDealer().getHandTotal() == 21) {
       this.endGame();
     }
@@ -97,6 +94,7 @@ if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
     document.getElementById("game-options").style.display = "none";
     document.getElementById("winner").innerHTML = "Winner: " + winner;
     document.getElementById("winner").style.display = "inline-block";
+    console.log("winner" + winner);
   }
 
   removeActiveOnCurrentPlayer() {

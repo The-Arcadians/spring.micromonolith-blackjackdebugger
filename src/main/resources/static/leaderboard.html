@@ -1,0 +1,38 @@
+<!-- HTML code to create a button and table to display the data -->
+<script
+        src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+
+<table id="winnerTable">
+    <tr>
+        <th>Rank</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Wins</th>
+    </tr>
+</table>
+
+<script type="text/javascript">
+$.ajax({
+    type: "GET",
+    crossDomain: true,
+    headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+    url: "/winner-controller/read-all",
+    dataType: 'json',
+    success: function(data) {
+        for (var i=0; i<data.length; i++) {
+            var row = $('<tr><td>' + data[i].rank+ '</td><td>' + " " + data[i].id+ '</td><td>' + " " + data[i].name +
+            '</td><td>' + " " + data[i].numberOfWins + '</td></tr>');
+            $('#winnerTable').append(row);
+        }
+    },
+    error: function () {
+                alert('Error while request..');
+            }
+});
+</script>
