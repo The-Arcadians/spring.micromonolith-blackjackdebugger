@@ -1,11 +1,8 @@
 // the purpose of this class is to mediate the behaviors of `PlayerData` and `PlayerView`
 class BlackJackPlayer {
-   
-    constructor(id, name, numberOfWins) {
-        this.id = id;
+    constructor(name) {
         this.name = name;
-        this.numberOfWins = numberOfWins;
-        this.blackJackPlayerData = new BlackJackPlayerStateLogger(id, name, numberOfWins);
+        this.blackJackPlayerData = new BlackJackPlayerStateLogger(name);
         this.blackJackPlayerView = new BlackJackPlayerView(this.blackJackPlayerData);
     }
 
