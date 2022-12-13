@@ -2,8 +2,11 @@
 class BlackJackPlayerState {
     // a blackjack player should receive a name when created
     // a black jack player's hand is empty until receiving cards from a dealer
-    constructor(name) {
+    
+    constructor(id, name, numberOfWins){
+        this.id = id;
         this.name = name;
+        this.numberOfWins = numberOfWins;
         this.cards = [];
     }
 

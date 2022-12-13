@@ -1,8 +1,10 @@
 // the purpose of this class is to encapsulate data about the `Game`
 class BlackJackGameState {
+   
+
   constructor() {
-    this.player = new BlackJackPlayer("Leon");
-    this.dealer = new BlackJackPlayer("Dealer");
+    this.player = new BlackJackPlayer(0, "name", 0);
+    this.dealer = new BlackJackPlayer(1, "Dealer", 0);
     this.players = [this.player, this.dealer];
     this.currentPlayer = this.player;
     this.deck = new Deck();

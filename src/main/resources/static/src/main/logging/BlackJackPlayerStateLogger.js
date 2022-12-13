@@ -1,9 +1,12 @@
 // the purpose of this class is to log information about data about the `Player`
 class BlackJackPlayerStateLogger {
-    constructor(name) {
+   
+    constructor(id, name, numberOfWins){
         console.log("Constructing a new BlackJackPlayerState.");
+        this.id = id;
         this.name = name;
-        this.playerData = new BlackJackPlayerState(name);
+        this.numberOfWins = numberOfWins;
+        this.playerData = new BlackJackPlayerState(id, name, numberOfWins);
         this.cards = this.playerData.cards;
         console.log("BlackJackPlayerState construction complete.");
         console.log(this.playerData);

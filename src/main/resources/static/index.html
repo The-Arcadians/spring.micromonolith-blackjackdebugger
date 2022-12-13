@@ -28,12 +28,12 @@
     <input id="create-default-button" type="submit" value="create-leon"/>
 </form>
 
+Name: <input id="name" type="text"><br>
 
-
-Name: <input id="name"><br>
 <form>
-    <button onclick="create(event)">Create Person</button>
+<button type="button" onclick="create(event)">Create Person</button>
 </form>
+
 
 Click <a href="./blackjack.html">here</a> to play the Blackjack game!
 
@@ -41,17 +41,16 @@ Click <a href="./blackjack.html">here</a> to play the Blackjack game!
 
 <script>
     class Person {
-        constructor(id_, name_, numberOfWins_) {
+        constructor(id_, name_) {
             this.id = id_;
             this.name = name_;
-            this.numberOfWins = numberOfWins_;
         }
     }
 
     function create(e) {
         e.preventDefault();
         console.log("click")
-        let firstName1 = document.getElementById("name").value;
+        let name1 = document.getElementById("name").value;
         let jsonPerson1 = new Person(0, name1);
         let personData = JSON.stringify(jsonPerson1);
         console.log(personData)
@@ -67,47 +66,6 @@ Click <a href="./blackjack.html">here</a> to play the Blackjack game!
             },
             url: "/person-controller/create",
             data: personData,
-            dataType: "JSON ",
-            success: function (response) {
-                alert(JSON.stringify(response));
-            },
-            error: function () {
-                alert('Error while request..');
-            }
-        });
-
-    }
-    
-</script>
-<script>
-    class Winner {
-        constructor(id_, name_, numberOfWins_) {
-            this.id = id_;
-            this.name = name_;
-            this.numberOfWins = numberOfWins_;
-        }
-    }
-
-    function create(e) {
-        e.preventDefault();
-        console.log("click")
-        let name1 = document.getElementById("name").value;
-        let numberOfWins1 = document.getElementById("numberOfWins").value;
-        let jsonWinner1 = new Winner(0, name1, numberOfWins1);
-        let winnerData = JSON.stringify(jsonWinner1);
-        console.log(winnerData)
-
-
-        $.ajax({
-            type: "POST",
-            crossDomain: true,
-            headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            url: "/winner-controller/create",
-            data: winnerData,
             dataType: "JSON ",
             success: function (response) {
                 alert(JSON.stringify(response));
