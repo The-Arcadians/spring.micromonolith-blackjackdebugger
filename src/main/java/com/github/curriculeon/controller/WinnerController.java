@@ -48,16 +48,16 @@ public class WinnerController {
     }
 
 
-    @RequestMapping(value = "/read", method = RequestMethod.GET)
-    public ResponseEntity<Winner> read(@PathVariable Long id) {
+    @RequestMapping(value = "/read/{id}", method = RequestMethod.GET)
+    public ResponseEntity<Winner> readById(@PathVariable Long id) {
         Winner responseBody = service.read(id);
         ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
         return responseEntity;
     }
 
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
-    public ResponseEntity<Winner> update(@PathVariable Long id, @RequestBody Winner winner) {
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+    public ResponseEntity<Winner> updateById(@PathVariable Long id, @RequestBody Winner winner) {
         Winner responseBody = service.update(id, winner);
         ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
         return responseEntity;
