@@ -5,6 +5,10 @@ function startblackjack() {
 	controls.startblackjack();
 }
 
+function getLeaderBoardData(){
+    new WinnerService().getAllWinners();
+}
+
 function hit() {
 	controls.hit();
 }
