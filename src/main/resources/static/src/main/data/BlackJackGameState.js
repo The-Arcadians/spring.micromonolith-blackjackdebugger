@@ -6,6 +6,7 @@ class BlackJackGameState {
     this.players = [this.player, this.dealer];
     this.currentPlayer = this.player;
     this.deck = new Deck();
+    this.deck.shuffle();
   }
 
   isCurrentPlayerDealer() {
