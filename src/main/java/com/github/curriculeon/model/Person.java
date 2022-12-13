@@ -10,17 +10,15 @@ public class Person {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     Long id;
-    String firstName;
-    String lastName;
+    String name;
 
     public Person() {
 
     }
 
-    public Person(Long id, String firstName, String lastName) {
+    public Person(Long id, String name) {
         this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
+       this.name = name;
     }
 
     public Long getId() {
@@ -31,19 +29,12 @@ public class Person {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getName() {
+        return name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 }

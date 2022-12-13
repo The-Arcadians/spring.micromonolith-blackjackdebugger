@@ -24,7 +24,7 @@ public class PersonController {
 
     @RequestMapping(value = "/create-default", method = RequestMethod.POST)
     public ResponseEntity<Person> create() {
-        Person responseBody = service.create(new Person(0L, "Leon", "Hunter"));
+        Person responseBody = service.create(new Person(0L, "Leon"));
         ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
         return responseEntity;
     }
