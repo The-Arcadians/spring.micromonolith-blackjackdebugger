@@ -28,7 +28,13 @@
     <input id="create-default-button" type="submit" value="create-leon"/>
 </form>
 
-Name: <input id="name" type="text"><br>
+<form>
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password"><br><br>
+    <button type="button" onclick="login(event)">Login</button>
+</form>
 
 <form>
     <button type="button" onclick="create(event)">Create Person</button>
@@ -36,6 +42,53 @@ Name: <input id="name" type="text"><br>
 
 Click <a href="./blackjack.html">here</a> to play the Blackjack game!
 
+
+<script>
+    class User {
+        constructor(username_, password_) {
+            this.username = username_;
+            this.password = password_;
+        }
+    }
+
+    function login(e) {
+        e.preventDefault();
+        console.log("click")
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let jsonUser = new User(username, password);
+        let userData = JSON.stringify(jsonUser);
+        console.log(userData)
+
+
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            url: "/login-controller/login",
+            data: userData,
+            dataType: "JSON ",
+            success: function (data) {
+                if (data.success){
+                currentLoggedInUser = data.user;
+                window.location.href='./blackjack.html';
+                alert(JSON.stringify(data));
+                } else {
+                $('error-message').text('Login Failed');
+                }
+            },
+            error: function () {
+                alert('Error while request..');
+            }
+        });
+
+    }
+
+</script>
 
 
 <script>
