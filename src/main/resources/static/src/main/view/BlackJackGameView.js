@@ -94,6 +94,7 @@ if (this.blackJackGameData.getCurrentPlayer().getHandTotal() == 21) {
     document.getElementById("game-options").style.display = "none";
     document.getElementById("winner").innerHTML = "Winner: " + winner;
     document.getElementById("winner").style.display = "inline-block";
+    new WinnerService().increment(winner);
     console.log("winner" + winner);
   }
 

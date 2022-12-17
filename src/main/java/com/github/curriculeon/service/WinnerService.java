@@ -15,7 +15,9 @@ public class WinnerService {
     private WinnerRepository repository;
 
     @Autowired
-    public WinnerService(WinnerRepository repository) {this.repository = repository; }
+    public WinnerService(WinnerRepository repository) {
+        this.repository = repository;
+    }
 
     public Winner create(Winner winner) {
         Winner winnerCreated = repository.save(winner);
@@ -26,6 +28,17 @@ public class WinnerService {
         Optional<Winner> potentialWinner = repository.findById(id);
         Winner winner = potentialWinner.get();
         return winner;
+    }
+
+    public Winner increment(String winnerName) {
+        Winner winnerInDatabase =  readAll()
+                .stream()
+                .filter(w -> w.getName().equals(winnerName))
+                .findFirst()
+                .orElse(create(new Winner()));
+        winnerInDatabase.setName(winnerName);
+        winnerInDatabase.setNumberOfWins(winnerInDatabase.getNumberOfWins() + 1);
+        return repository.save(winnerInDatabase);
     }
 
     public Winner update(Long id, Winner winner) {

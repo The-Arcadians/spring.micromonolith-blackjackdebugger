@@ -7,13 +7,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Winner {
-
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private int rank;
-
-    private Long id;
-
     private String name;
 
     private int numberOfWins;
@@ -22,29 +16,11 @@ public class Winner {
     }
 
 
-    public Winner(int rank,Long id, String name, int numberOfWins) {
-        this.rank = rank;
-        this.id = id;
+
+    public Winner(long l, String brent, int i) {
         this.name = name;
         this.numberOfWins = numberOfWins;
 
-    }
-
-
-    public int getRank() {
-        return rank;
-    }
-
-    public void setRank(int rank) {
-        this.rank = rank;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -62,6 +38,4 @@ public class Winner {
     public void setNumberOfWins(int numberOfWins) {
         this.numberOfWins = numberOfWins;
     }
-
-
 }

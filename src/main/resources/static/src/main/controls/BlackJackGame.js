@@ -8,6 +8,7 @@ class BlackJackGame {
         this.blackJackGameData.play();        
         this.blackJackGameDataView.clearGameOptions();
         this.blackJackGameDataView.setNumberOfCardsOnScreen();
+        new LoginService().login(this.blackJackGameDataView.blackJackGameData.getCurrentPlayer().name)
         this.blackJackGameDataView.setActiveOnCurrentPlayer();
         this.blackJackGameDataView.updatePoints();
         this.blackJackGameDataView.checkAndUpdateWinner();

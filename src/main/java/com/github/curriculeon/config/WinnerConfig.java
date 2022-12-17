@@ -15,10 +15,11 @@ public class WinnerConfig {
 
     @PostConstruct
     public void setup(){
-        service.create(new Winner(1,1L, "Brent", 7));
-        service.create(new Winner(2,2L, "Eric", 6));
-        service.create(new Winner(3,3L, "Leon", 4));
-        service.create(new Winner(4,4L, "Randy", 3));
+        service.create(new Winner(1L, "Brent", 7));
+        service.create(new Winner(2L, "Eric", 6));
+        service.create(new Winner(3L, "Leon", 4));
+        service.create(new Winner(4L, "Randy", 3));
+
 
     }
 }

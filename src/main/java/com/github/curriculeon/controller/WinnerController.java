@@ -27,7 +27,7 @@ public class WinnerController {
 
     @RequestMapping(value = "/create-default", method = RequestMethod.POST)
     public ResponseEntity<Winner> create() {
-        Winner responseBody = service.create(new Winner(0,0L, "Leon", 0));
+        Winner responseBody = service.create(new Winner(0L, "Leon", 0));
         ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
         return responseEntity;
     }
@@ -48,7 +48,7 @@ public class WinnerController {
     }
 
 
-    @RequestMapping(value = "/read", method = RequestMethod.GET)
+    @RequestMapping(value = "/read/{id}", method = RequestMethod.GET)
     public ResponseEntity<Winner> read(@PathVariable Long id) {
         Winner responseBody = service.read(id);
         ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
@@ -56,9 +56,17 @@ public class WinnerController {
     }
 
 
-    @RequestMapping(value = "/update", method = RequestMethod.PUT)
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
     public ResponseEntity<Winner> update(@PathVariable Long id, @RequestBody Winner winner) {
         Winner responseBody = service.update(id, winner);
+        ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
+        return responseEntity;
+    }
+
+
+    @RequestMapping(value = "/increment/{name}", method = RequestMethod.PUT)
+    public ResponseEntity<Winner> update(@PathVariable String name) {
+        Winner responseBody = service.increment(name);
         ResponseEntity responseEntity = new ResponseEntity<>(responseBody, HttpStatus.OK);
         return responseEntity;
     }

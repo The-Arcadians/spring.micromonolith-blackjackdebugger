@@ -2,6 +2,7 @@
 let controls = new BlackJackGame();
 
 function startblackjack() {
+	console.log(new WinnerService().readById(2));
 	controls.startblackjack();
 }
 
